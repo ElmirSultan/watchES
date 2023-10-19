@@ -1,0 +1,16 @@
+.button{
+    padding: 1rem;
+    border: 1px solid #aaa;
+    border-radius: .6rem;
+    max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+
+    p{
+        font-size: 1.6rem !important;
+        font-weight: 500;
+    }
+}
