@@ -1,5 +1,9 @@
 header{
     width: 100%;
+    position: sticky;
+    top: 0;
+    background-color:var(--main-background-color) ;
+    z-index: 99;
 
     nav{
         max-width: 1200px;
@@ -8,7 +12,10 @@ header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem 0;
+        padding: 2rem;
+        border-bottom-left-radius: .5rem;
+        border-bottom-right-radius: .5rem;
+        box-shadow: 0 0 1rem #aaa;
 
         .left{
             display: flex;
@@ -21,6 +28,7 @@ header{
                 align-items: center;
                 gap: 1rem;
                 font-size: 2rem;
+                cursor: pointer;
 
                 p{
                     font-weight: 700;

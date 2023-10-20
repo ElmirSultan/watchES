@@ -5,6 +5,7 @@ import Home from "./pages/home/Home";
 import Featured from "./pages/featured/Featured";
 import Products from "./pages/products/Products";
 import New from "./pages/new/New";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/watches" element={<Products />} />
           <Route path="/new" element={<New />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );

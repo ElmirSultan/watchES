@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 
+:root{
+  --main-background-color:#F1EFEF;
+}
+
 html,body{
   margin: 0;
   padding: 0;
   font-size: 62.5%;
-  background-color: #F1EFEF;
+  background-color: var(--main-background-color);
   font-family: 'Poppins', sans-serif;
   
 }
