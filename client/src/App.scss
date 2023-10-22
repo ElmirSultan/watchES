@@ -3,6 +3,7 @@
 
 :root{
   --main-background-color:#F1EFEF;
+  --main-light-blue:#7C81AD;
 }
 
 html,body{
@@ -23,4 +24,10 @@ input,textarea{
 }
 a{
   text-decoration: none;
+}
+.ant-select-selection-item{
+  font-family: 'Poppins', sans-serif;
+}
+.ant-select-selector{
+  border: 2px solid #7C81AD !important;
 }

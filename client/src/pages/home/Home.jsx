@@ -40,6 +40,7 @@ const Home = () => {
   useEffect(() => {
     showWatches();
   }, []);
+  
 
   return (
     <section className="home">
@@ -89,12 +90,16 @@ const Home = () => {
           slidesPerView={3}
           spaceBetween={140}
             scrollbar={{
-              hide: false,
+              hide: true,
             }}
             modules={[Scrollbar]}
             className="mySwiper"
           >
-            {watches.map((item) => (
+            {watches
+            .slice()
+            .reverse()
+            .slice(0,6)
+            .map((item) => (
               <SwiperSlide
                 key={item._id}
                 style={{
@@ -117,6 +122,8 @@ const Home = () => {
             <img src={watchWall4} alt="" className="dior" />
         </div>
       </div>
+
+      
     </section>
   );
 };

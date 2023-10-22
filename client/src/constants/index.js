@@ -6,17 +6,17 @@ export const navbarlinks = [
     },
     {
         id:2,
-        href: "/featured",
-        label: "Featured"
-    },
-    {
-        id:3,
         href:"/watches",
         label:"Watches"
     },
     {
+        id:3,
+        href: "/aboutus",
+        label: "About Us"
+    },
+    {
         id:4,
-        href:"/new",
-        label: "New"
+        href:"/contactus",
+        label: "Contact Us"
     }
 ]

@@ -1,13 +1,13 @@
 footer {
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 1rem 0;
-    
-    
+    padding: 3rem 0 0 0;
+    background-color: #006039;
+    margin-top: 5rem;
 .footer{
     display: flex;
     flex-direction: column;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     
     .logo{
         display: flex;
@@ -20,6 +20,7 @@ footer {
         width: fit-content;
         margin-bottom: 2rem;
         cursor: pointer;
+        color: #fff;
 
         p{
             font-weight: 700;
@@ -35,7 +36,7 @@ footer {
             flex-direction: column;
             gap: 2rem;
             a{
-                color: black;
+                color: #fff;
                 font-size: 1.5rem;
             }
         }
@@ -46,6 +47,10 @@ footer {
     font-size: 1.3rem;
     padding: 1rem 0;
     border-top: 1px solid #aaa;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
     margin-top: 2rem;
+    color: #fff;
 }
 }
