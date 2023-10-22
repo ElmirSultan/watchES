@@ -1,0 +1,79 @@
+.about-us{
+    margin-top: 6rem;
+    h6{
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 200;
+    }
+    h3{
+        text-align: center;
+        font-size: 5rem;
+        font-weight: 700;
+    }
+
+
+    .images-boxes{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 4rem;
+
+        .thefirst-box,
+        .thesecond-box{
+            width: 50rem;
+            height: 60rem;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+
+            .secret-hover{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: #7c81ad86;
+                transition: all .5s ease;
+                top: 0;
+                opacity: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                p{
+                    font-size: 3rem;
+                    font-weight: 600;
+                    color: #fff;
+                }
+                span{
+                    font-size: 1.5rem;
+                    font-weight: 200;
+                    color: #fff;
+                }
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: all .7s ease-in-out;
+            }
+        }
+
+        .thefirst-box:hover .secret-hover,
+        .thesecond-box:hover .secret-hover{
+            opacity: 1;
+        }
+        .thefirst-box:hover,
+        .thesecond-box:hover{
+            img{
+                transform: scale(1.3);
+            }
+        }
+
+        
+
+    }
+}

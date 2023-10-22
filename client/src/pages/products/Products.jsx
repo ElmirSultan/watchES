@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import watchBack from "../../assets/images/ssatback.jpg";
 import "./products.scss";
 import WatchCard from "../../components/watchcard/WatchCard";
-import { Select, Space } from "antd";
+import { Select, Space, Pagination } from "antd";
 
 const handleChange = (value) => {
   console.log(`selected ${value}`);
@@ -25,21 +25,30 @@ const Products = () => {
         const newData = await response.json();
         setWatches(newData);
 
-        const uniqueWatchMarks = Array.from(new Set(newData.map(item => item.watchMark)));
-        const mappedOptions = uniqueWatchMarks.map(watchMark => ({
+        const uniqueWatchMarks = Array.from(
+          new Set(newData.map((item) => item.watchMark))
+        );
+        const mappedOptions = uniqueWatchMarks.map((watchMark) => ({
           value: watchMark,
           label: watchMark,
         }));
 
         setOptions(mappedOptions);
-
       } catch (error) {
         console.log(error);
       }
     };
-    
+
     showAllWatches();
   }, [options]);
+
+  const itemsPerPage = 9; 
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const watchesToShow = watches.slice(startIndex, endIndex);
 
   return (
     <section className="watches">
@@ -61,7 +70,9 @@ const Products = () => {
 
       <div className="thesecond-section">
         <div className="content">
-          <h2>All <span>Our Watches</span></h2>
+          <h2>
+            All <span>Our Watches</span>
+          </h2>
           <div className="filter">
             <Space wrap>
               <Select
@@ -76,9 +87,17 @@ const Products = () => {
           </div>
         </div>
         <div className="watches">
-          {watches.map((item) => (
-              <WatchCard item={item} key={item._id} />
+          {watchesToShow.map((item) => (
+            <WatchCard item={item} key={item._id} />
           ))}
+        </div>
+        <div className="pages-number">
+          <Pagination
+            current={currentPage}
+            total={watches.length}
+            pageSize={itemsPerPage}
+            onChange={(page) => setCurrentPage(page)}
+          />
         </div>
       </div>
     </section>
