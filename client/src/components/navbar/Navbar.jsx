@@ -2,19 +2,20 @@ import React from "react";
 import "./navbar.scss";
 import { BsSmartwatch } from "react-icons/bs";
 import { navbarlinks } from "../../constants";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiMoon } from "react-icons/fi";
 import { BsFillBagFill } from "react-icons/bs";
 
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate()
 
   return (
     <header>
       <nav>
         <div className="left">
-          <div className="logo">
+          <div className="logo" onClick={() => navigate("/")}>
             <BsSmartwatch /> <p>watchES</p>
           </div>
 

@@ -4,6 +4,7 @@ header{
     top: 0;
     background-color:var(--main-background-color) ;
     z-index: 99;
+    box-shadow: 0 0 1rem #aaa;
 
     nav{
         max-width: 1200px;
@@ -12,10 +13,9 @@ header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem;
-        border-bottom-left-radius: .5rem;
-        border-bottom-right-radius: .5rem;
-        box-shadow: 0 0 1rem #aaa;
+        padding: 2rem 0;
+
+
 
         .left{
             display: flex;
@@ -50,8 +50,8 @@ header{
                 }
 
                 .active{
-                    color: orange;
-                    border-bottom: 1px solid orange;
+                    color: var(--main-light-blue);
+                    border-bottom: 1px solid var(--main-light-blue);
                 }
             }
         }

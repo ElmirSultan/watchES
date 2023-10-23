@@ -1,13 +1,14 @@
 import React from "react";
 import "./footer.scss";
 import { BsSmartwatch } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <footer>
       <div className="footer">
-        <div className="logo">
+        <div className="logo" onClick={() => navigate("/")}>
           <BsSmartwatch /> <p>watchES</p>
         </div>
 
