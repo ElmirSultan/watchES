@@ -42,6 +42,10 @@ const Products = () => {
     showAllWatches();
   }, [options]);
 
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[])
+
   const itemsPerPage = 9; 
   const [currentPage, setCurrentPage] = useState(1);
 

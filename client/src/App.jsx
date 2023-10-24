@@ -6,6 +6,7 @@ import Products from "./pages/products/Products";
 import Footer from "./components/footer/Footer";
 import Contact from "./pages/contactus/Contact";
 import Aboutus from "./pages/aboutus/Aboutus";
+import Watch from "./pages/products/Watch";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/watches" element={<Products />} />
+          <Route path="/watch-about/:watchName" element={<Watch />} />
           <Route path="/contactus" element={<Contact />} />
         </Routes>
         <Footer />

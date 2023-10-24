@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./aboutus.scss";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { GiSandsOfTime } from "react-icons/gi";
@@ -6,6 +6,9 @@ import image1 from "../../assets/images/about1.jpg";
 import image2 from "../../assets/images/about2.jpg";
 
 const Aboutus = () => {
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[])
   return (
     <section className="about-us">
       <h6>ABOUT US</h6>

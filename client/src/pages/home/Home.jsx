@@ -5,6 +5,7 @@ import saatImage4 from "../../assets/images/saat4.jpg";
 import "./home.scss";
 import MyButton from "../../components/button/MyButton";
 import WatchCard from "../../components/watchcard/WatchCard";
+import { useNavigate } from "react-router-dom";
 // swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,12 +13,18 @@ import "swiper/css/pagination";
 import { Scrollbar } from "swiper/modules";
 // swiper end
 
-import watchWall2 from "../../assets/images/katy.jpg"
-import watchWall3 from "../../assets/images/thor.jpg"
-import watchWall4 from "../../assets/images/www.jpg"
+import watchWall2 from "../../assets/images/katy.jpg";
+import watchWall3 from "../../assets/images/thor.jpg";
+import watchWall4 from "../../assets/images/www.jpg";
 
 const Home = () => {
   const [watches, setWatches] = useState([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const navigate = useNavigate();
 
   const showWatches = async () => {
     try {
@@ -40,7 +47,6 @@ const Home = () => {
   useEffect(() => {
     showWatches();
   }, []);
-  
 
   return (
     <section className="home">
@@ -54,7 +60,10 @@ const Home = () => {
               Moreover there are other advantages related to the oil technology.
             </p>
 
-            <MyButton buttonText={"LEARN MORE"} />
+            <MyButton
+              buttonText={"LEARN MORE"}
+              butonKlik={() => navigate("/watches")}
+            />
           </div>
         </div>
 
@@ -86,9 +95,9 @@ const Home = () => {
         </h1>
         <div className="new-watches">
           <Swiper
-          style={{userSelect:"none"}}
-          slidesPerView={3}
-          spaceBetween={140}
+            style={{ userSelect: "none" }}
+            slidesPerView={3}
+            spaceBetween={140}
             scrollbar={{
               hide: true,
             }}
@@ -96,34 +105,32 @@ const Home = () => {
             className="mySwiper"
           >
             {watches
-            .slice()
-            .reverse()
-            .slice(0,6)
-            .map((item) => (
-              <SwiperSlide
-                key={item._id}
-                style={{
-                  width: "fit-content",
-                  marginRight: 0,
-                }}
-              >
-                <WatchCard key={item._id} item={item} />
-              </SwiperSlide>
-            ))}
+              .slice()
+              .reverse()
+              .slice(0, 6)
+              .map((item) => (
+                <SwiperSlide
+                  key={item._id}
+                  style={{
+                    width: "fit-content",
+                    marginRight: 0,
+                  }}
+                >
+                  <WatchCard key={item._id} item={item} />
+                </SwiperSlide>
+              ))}
           </Swiper>
         </div>
       </div>
 
       <div className="theforth-section">
         <div className="images-box">
-            <img src={watchWall2} alt="" className="kate" />
-            
-            <img src={watchWall3} alt="" className="thor" />
-            <img src={watchWall4} alt="" className="dior" />
+          <img src={watchWall2} alt="" className="kate" />
+
+          <img src={watchWall3} alt="" className="thor" />
+          <img src={watchWall4} alt="" className="dior" />
         </div>
       </div>
-
-      
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./contact.scss";
 import { BiPhone } from "react-icons/bi";
 import { MdEmail } from "react-icons/md";
@@ -6,6 +6,9 @@ import { TbLocationFilled } from "react-icons/tb";
 import MyButton from "../../components/button/MyButton";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[])
   return (
     <section className="contact-us">
       <p>GET IN TOUCH</p>

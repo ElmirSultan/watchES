@@ -1,8 +1,8 @@
 import React from 'react'
 import "./button.scss"
-const MyButton = ({buttonText}) => {
+const MyButton = ({buttonText,butonKlik}) => {
   return (
-    <div className='button'><p>{buttonText}</p></div>
+    <div className='button' onClick={butonKlik}><p>{buttonText}</p></div>
   )
 }
 
