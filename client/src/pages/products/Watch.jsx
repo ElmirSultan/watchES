@@ -3,7 +3,9 @@ import { useParams } from "react-router-dom";
 import "./watchabout.scss";
 import { BsSmartwatch } from "react-icons/bs";
 import MyButton from "../../components/button/MyButton";
-
+import { useDispatch } from "react-redux";
+import { message } from "antd";
+import { addWatch } from "../../toolkit/cartslice";
 const Watch = () => {
   const [watches, setWatches] = useState([]);
   const showAllWatches = async () => {
@@ -25,6 +27,7 @@ const Watch = () => {
 
   useEffect(() => {
     showAllWatches();
+    window.scrollTo(0,0)
   }, []);
 
   const { watchName } = useParams();
@@ -32,6 +35,13 @@ const Watch = () => {
   const selectedWatch = watches.find(
     (item) => item.watchMark === decodeURIComponent(watchName)
   );
+
+  // redux time
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(addWatch({...selectedWatch,quantity:1}));
+    message.success("The product successfully added to cart")
+  }
 
   return (
     <section className="watch-about">
@@ -45,10 +55,11 @@ const Watch = () => {
             <h6>{selectedWatch.watchName}</h6>
 
             <div className="prices">
-              {selectedWatch.oldPrice 
-              ? <p className="old-price">{selectedWatch.oldPrice}$</p>
-              : ""
-              }
+              {selectedWatch.oldPrice ? (
+                <p className="old-price">{selectedWatch.oldPrice}$</p>
+              ) : (
+                ""
+              )}
               <p className="new-price">{selectedWatch.newPrice}$</p>
             </div>
 
@@ -67,7 +78,7 @@ const Watch = () => {
               </p>
             </div>
 
-            <MyButton buttonText={"Add to Cart"}/>
+            <MyButton buttonText={"Add to Cart"} butonKlik={handleClick}/>
           </div>
           <div className="right-card">
             <img src={selectedWatch.watchImage} alt="" />

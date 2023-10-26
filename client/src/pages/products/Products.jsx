@@ -4,9 +4,9 @@ import "./products.scss";
 import WatchCard from "../../components/watchcard/WatchCard";
 import { Select, Space, Pagination } from "antd";
 
-const handleChange = (value) => {
-  console.log(`selected ${value}`);
-};
+// const handleChange = (value) => {
+//   console.log(`selected ${value}`);
+// };
 const Products = () => {
   const [watches, setWatches] = useState([]);
   const [options, setOptions] = useState([]);
@@ -40,6 +40,7 @@ const Products = () => {
     };
 
     showAllWatches();
+    
   }, [options]);
 
   useEffect(() => {
@@ -52,7 +53,18 @@ const Products = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const watchesToShow = watches.slice(startIndex, endIndex);
+
+  const [selectedOption, setSelectedOption] = useState("Filter for Brands");
+
+
+    const handleSelectChange = (value) => {
+      setSelectedOption(value);
+    };
+  
+    const watchesToShow = selectedOption === "Filter for Brands"
+      ? watches.slice(startIndex, endIndex)
+      : watches.filter(watch => watch.watchMark === selectedOption);
+
 
   return (
     <section className="watches">
@@ -80,11 +92,12 @@ const Products = () => {
           <div className="filter">
             <Space wrap>
               <Select
+              value={selectedOption}
                 defaultValue="Filter for Brands"
                 style={{
                   width: 200,
                 }}
-                onChange={handleChange}
+                onChange={handleSelectChange}
                 options={options}
               />
             </Space>
