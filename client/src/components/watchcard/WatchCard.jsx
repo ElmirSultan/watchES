@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const WatchCard = ({item}) => {
   const navigate = useNavigate();
   return (
-    <div className="watch-card" onClick={() => navigate(`/watch-about/${encodeURIComponent(item.watchMark)}`)}>
+    <div className="watch-card" onClick={() => navigate(`/watch-about/${encodeURIComponent(item.watchMark)}/${encodeURIComponent(item.watchName)}`)}>
       <div className="new-or-not">New</div>
 
       <div className="like">

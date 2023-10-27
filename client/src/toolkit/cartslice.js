@@ -18,7 +18,7 @@ const cartSlice = createSlice({
             else{
                 state.cartItems.push(action.payload)
             }
-            state.total += action.payload.price
+            state.total += action.payload.newPrice
         },
 
         deleteWatch: (state,action) => {
@@ -26,7 +26,7 @@ const cartSlice = createSlice({
                 (item) => item._id !== action.payload._id
             );
 
-            state.total -= action.payload.price * action.payload.quantity
+            state.total -= action.payload.newPrice * action.payload.quantity
         },
         increase: (state, action) => {
             const cartItem = state.cartItems.find(
@@ -34,7 +34,7 @@ const cartSlice = createSlice({
             );
 
             cartItem.quantity += 1
-            state.total += cartItem.price
+            state.total += cartItem.newPrice
         },
 
         decrease: (state,action) => {
@@ -43,7 +43,7 @@ const cartSlice = createSlice({
             );
 
             cartItem.quantity -= 1
-            state.total -= cartItem.price
+            state.total -= cartItem.newPrice
             if(cartItem.quantity === 0) {
                 state.cartItems = state.cartItems.filter(
                     (item) => item._id !== action.payload._id

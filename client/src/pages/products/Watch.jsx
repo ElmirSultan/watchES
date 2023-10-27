@@ -27,21 +27,23 @@ const Watch = () => {
 
   useEffect(() => {
     showAllWatches();
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0);
   }, []);
 
-  const { watchName } = useParams();
+  const { watchMark, watchName } = useParams();
 
   const selectedWatch = watches.find(
-    (item) => item.watchMark === decodeURIComponent(watchName)
+    (item) =>
+      item.watchMark === decodeURIComponent(watchMark) &&
+      item.watchName === decodeURIComponent(watchName)
   );
 
   // redux time
   const dispatch = useDispatch();
   const handleClick = () => {
-    dispatch(addWatch({...selectedWatch,quantity:1}));
-    message.success("The product successfully added to cart")
-  }
+    dispatch(addWatch({ ...selectedWatch, quantity: 1 }));
+    message.success("The product successfully added to cart");
+  };
 
   return (
     <section className="watch-about">
@@ -78,7 +80,7 @@ const Watch = () => {
               </p>
             </div>
 
-            <MyButton buttonText={"Add to Cart"} butonKlik={handleClick}/>
+            <MyButton buttonText={"Add to Cart"} butonKlik={handleClick} />
           </div>
           <div className="right-card">
             <img src={selectedWatch.watchImage} alt="" />
