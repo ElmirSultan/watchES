@@ -54,3 +54,22 @@ footer {
     color: #fff;
 }
 }
+
+
+@media(max-width:1240px){
+    footer .footer{
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem;
+        .links{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+    }
+
+    footer .copyright{
+        padding: 1rem;
+    }
+}

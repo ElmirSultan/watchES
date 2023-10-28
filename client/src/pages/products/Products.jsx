@@ -4,9 +4,7 @@ import "./products.scss";
 import WatchCard from "../../components/watchcard/WatchCard";
 import { Select, Space, Pagination } from "antd";
 
-// const handleChange = (value) => {
-//   console.log(`selected ${value}`);
-// };
+
 const Products = () => {
   const [watches, setWatches] = useState([]);
   const [options, setOptions] = useState([]);

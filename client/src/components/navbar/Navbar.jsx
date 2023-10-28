@@ -3,13 +3,13 @@ import "./navbar.scss";
 import { BsSmartwatch } from "react-icons/bs";
 import { navbarlinks } from "../../constants";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FiMoon } from "react-icons/fi";
 import { BsFillBagFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { Badge, message } from "antd";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { AiFillMinusCircle } from "react-icons/ai";
 import { AiOutlineCloseSquare } from "react-icons/ai";
+import { FaBars } from "react-icons/fa";
 import {
   decrease,
   deleteWatch,
@@ -24,16 +24,19 @@ const Navbar = () => {
 
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const isBasketEmpty = cart.cartItems.length === 0;
 
   const [basket, setBasket] = useState(false);
   const openBasket = () => {
     setBasket(true);
   };
   const outsideRef = useRef();
+
   useEffect(() => {
     function clickOutside(event) {
       if (outsideRef.current && !outsideRef.current.contains(event.target)) {
         setBasket(false);
+        setOverlay(false)
       }
     }
     document.addEventListener("mousedown", clickOutside);
@@ -41,6 +44,11 @@ const Navbar = () => {
       document.removeEventListener("mousedown", clickOutside);
     };
   }, [outsideRef]);
+
+  const [overlay, setOverlay] = useState(false);
+  const openOverlay = () => {
+    setOverlay(true);
+  };
 
   return (
     <header>
@@ -64,7 +72,6 @@ const Navbar = () => {
         </div>
 
         <div className="others">
-          <FiMoon style={{ cursor: "pointer" }} />
           <Badge
             count={cart.cartItems.length}
             offset={[0, 0]}
@@ -73,6 +80,10 @@ const Navbar = () => {
           >
             <BsFillBagFill style={{ cursor: "pointer", fontSize: "2rem" }} />
           </Badge>
+
+          <div className="bars-icon" onClick={openOverlay}>
+            <FaBars />
+          </div>
         </div>
       </nav>
 
@@ -127,16 +138,56 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="total-price">
-              <p className="total">Total: {cart.total}$</p>
-              <div
-                onClick={() => {
-                  dispatch(reset());
-                  message.success("The basket successfully cleared");
-                }}
-                className="clean"
-              >
-                <p>Clean</p>
+            {isBasketEmpty ? (
+              <div className="total-price">
+                <p className="total">Total: {cart.total}$</p>
+                <div
+                  style={{ opacity: ".5", cursor: "not-allowed" }}
+                  className="clean"
+                >
+                  <p>Clean</p>
+                </div>
+              </div>
+            ) : (
+              <div className="total-price">
+                <p className="total">Total: {cart.total}$</p>
+                <div
+                  onClick={() => {
+                    dispatch(reset());
+                    message.success("The basket successfully cleared");
+                  }}
+                  className="clean"
+                >
+                  <p>Clean</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {overlay && (
+        <div className="overlay-back">
+          <div className="overlay" ref={outsideRef}>
+            <div className="close-icon" onClick={() => setOverlay(false)}>
+              <AiOutlineCloseSquare />
+            </div>
+
+            <div className="overlay-in">
+              <div className="nav-links">
+                {navbarlinks.map((link) => (
+                  <Link
+                    key={link.id}
+                    to={link.href}
+                    className={`${
+                      location.pathname === link.href ? "active" : ""
+                    }`}
+
+                    onClick={() => setOverlay(false)}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>

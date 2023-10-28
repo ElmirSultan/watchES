@@ -151,3 +151,218 @@
         }
     }
 }
+
+@media(max-width:1240px){
+    .home .thefirst-section{
+        display: flex;
+        flex-direction: column-reverse;
+        margin-top: 2rem;
+        .left-side{
+            padding: 0 1rem;
+        }
+        .right-side{
+            padding: 0 1rem;
+            img{
+                max-width: 42rem;
+                height: 44rem;
+                object-fit: cover;
+            }
+        }
+        
+    }
+    
+    .home .thesecond-section{
+        display: flex;
+        justify-content: center;
+        height: fit-content;
+        margin: 5rem 0;
+        .left-side{
+            display: none;
+        }
+        .right-side{
+            padding: 0 1rem;
+        }
+    }
+
+    .home .thethird-section{
+        .swiper-slide.swiper-slide-active{
+            display: flex;
+            justify-content: center;
+        }
+        .new-watches{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+    }
+
+    .home .theforth-section{
+
+        .images-box{
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0 1rem;
+            .thor{
+                width: 23%;
+                height: auto;
+            }
+            .kate{
+                width: 50%;
+                height: 100%;
+            }
+            .dior{
+                width: 25%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media(max-width:600px){
+    .home .thefirst-section{
+        .left-side{
+            .about-product{
+                h2{
+                    font-size: 3rem;
+                    font-weight: 700;
+                }
+    
+                p{
+                    font-size: 1.3rem;
+                    font-weight: 200;
+                    color: #575656;
+                }
+             
+            }
+        }
+    }
+
+    .home .thesecond-section{
+        .right-side{
+            padding: 0 1rem;
+            .about-product{
+                h2{
+                    font-size: 3rem;
+                    font-weight: 700;
+                }
+    
+                p{
+                    font-size: 1.3rem;
+                    font-weight: 200;
+                    color: #575656;
+                }
+            }
+
+        }
+    }
+
+    .home .thethird-section{
+        h1{
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+            span{
+                color: #7C81AD;
+            }
+        }
+    }
+
+    .home .theforth-section{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .images-box{
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0 1rem;
+            .thor{
+                width: 23%;
+                height: auto;
+            }
+            .kate{
+                width: 50%;
+                height: 100%;
+            }
+            .dior{
+                width: 25%;
+                height: auto;
+            }
+        }
+    }
+}
+
+@media(max-width:600px){
+    .home .thefirst-section{
+        .left-side{
+            .about-product{
+                h2{
+                    font-size: 3rem;
+                    font-weight: 700;
+                }
+    
+                p{
+                    font-size: 1.3rem;
+                    font-weight: 200;
+                    color: #575656;
+                }
+             
+            }
+        }
+    }
+
+    .home .thesecond-section{
+        .right-side{
+            padding: 0 1rem;
+            .about-product{
+                h2{
+                    font-size: 3rem;
+                    font-weight: 700;
+                }
+    
+                p{
+                    font-size: 1.3rem;
+                    font-weight: 200;
+                    color: #575656;
+                }
+            }
+
+        }
+    }
+
+    .home .thethird-section{
+        h1{
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+            span{
+                color: #7C81AD;
+            }
+        }
+    }
+
+    .home .theforth-section{
+        .images-box{
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0 1rem;
+            .thor{
+                display: none;
+            }
+            .kate{
+                width: 100%;
+                height: 100%;
+            }
+            .dior{
+                display: none;
+            }
+        }
+    }
+}

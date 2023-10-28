@@ -75,3 +75,10 @@
 .watch-card:hover .image-side img{
     transform: scale(1.2);
 }
+
+@media(max-width:600px){
+    .watch-card{
+        width: 20rem;
+        height: 30rem;
+    }
+}

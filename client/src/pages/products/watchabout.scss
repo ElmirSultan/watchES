@@ -1,7 +1,7 @@
 .watch-about{
     max-width: 1200px;
     width: 100%;
-    margin: 7rem auto;
+    margin: 5rem auto;
     min-height: 80vh;
 
     .watch-about-card{
@@ -71,6 +71,114 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+            }
+        }
+    }
+}
+
+@media(max-width:1240px){
+    .watch-about {
+
+        .watch-about-card{
+            .left-card{
+                padding-left: 1rem;
+            }
+
+            .right-card{
+                width: 40rem;
+                height: 40rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+}
+
+@media(max-width:1000px){
+    .watch-about {
+
+        .watch-about-card{
+            .left-card{
+                h5{
+                    font-size: 3rem;
+                    color: var(--main-light-blue);
+                }
+                h6{
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+    
+                .prices{
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+                    font-size: 1.6rem;
+                    color: #656565;
+                    .old-price{
+                        text-decoration: line-through;
+                    }
+                }
+    
+                .about{
+                    margin-top: 2rem;
+                    p{
+                        font-size: 1.4rem;
+                        font-weight: 200;
+                    }
+                }
+            }
+
+            .right-card{
+                width: 30rem;
+                height: 30rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+}
+
+@media(max-width:660px){
+    .watch-about {
+
+        .watch-about-card{
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            .left-card{
+                margin-top: 2rem;
+                padding: 1rem;
+                h5{
+                    font-size: 3rem;
+                    color: var(--main-light-blue);
+                }
+                h6{
+                    font-size: 2rem;
+                    font-weight: 600;
+                }
+    
+                .prices{
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+                    font-size: 1.6rem;
+                    color: #656565;
+                    .old-price{
+                        text-decoration: line-through;
+                    }
+                }
+    
+                .about{
+                    margin-top: 2rem;
+                    p{
+                        font-size: 1.4rem;
+                        font-weight: 200;
+                    }
+                }
+            }
+
+            .right-card{
+                width: 95%;
+                height: 30rem;
+                padding: 1rem;
             }
         }
     }

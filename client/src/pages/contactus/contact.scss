@@ -106,3 +106,39 @@
         }
     }
 }
+
+@media(max-width:1240px){
+    .contact-us .contact-boxes{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+    .contact-us .contact-form{
+        display: flex;
+        align-items: center;
+        .form-box{
+            display: flex;
+            flex-direction: column-reverse;
+            width: 50rem;
+            iframe{
+                width: 100%;
+            }
+        }
+    }
+}
+@media(max-width:600px){
+    .contact-us .contact-boxes .contact-box{
+        width: 70%;
+    }
+    .contact-us .contact-form{
+        .form-box{
+            display: flex;
+            flex-direction: column-reverse;
+            width: 35rem;
+            iframe{
+                width: 100%;
+            }
+        }
+    }
+}

@@ -103,6 +103,21 @@ const Home = () => {
             }}
             modules={[Scrollbar]}
             className="mySwiper"
+            breakpoints={{
+              324: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+            }}
+            
           >
             {watches
               .slice()
