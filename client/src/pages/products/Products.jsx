@@ -12,9 +12,7 @@ const Products = () => {
   useEffect(() => {
     const showAllWatches = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:7700/watches/get-all-watches"
-        );
+        const response = await fetch(process.env.REACT_APP_SERVER_URL + "/watches/get-all-watches");
 
         if (!response.ok) {
           throw new Error("There is a problem");

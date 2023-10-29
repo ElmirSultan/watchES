@@ -11,7 +11,7 @@ const Watch = () => {
   const showAllWatches = async () => {
     try {
       const response = await fetch(
-        "http://localhost:7700/watches/get-all-watches"
+        process.env.REACT_APP_SERVER_URL + "/watches/get-all-watches"
       );
 
       if (!response.ok) {
